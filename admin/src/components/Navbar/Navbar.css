@@ -1,0 +1,83 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 4%;
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+}
+.navbar .shop_name{
+    /* width: max(10%, 100px); */
+    color: tomato;
+    
+}
+.navbar .logo{
+    width: max(10%, 80px);
+}
+.navbar .shop_image{
+    width: max(6%, 80px);
+}
+.navbar .profile{
+    width: 40px;
+}
+.navbar li{
+    cursor: pointer;
+    list-style: none;
+}
+
+.navbar button{
+    background-image: transparent;
+    font-size: 16px;
+    color:#49557e;
+    border: 1px solid tomato;
+    padding: 10px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+.navbar-profile{
+    position: relative;
+    cursor: pointer;
+}
+
+.navbar-profile-dropdown{
+    position: absolute;
+    display: none;
+    right: 0;
+    z-index: 1;
+
+}
+
+.navbar-profile:hover .navbar-profile-dropdown{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fff2ef;
+    padding: 12px 25px;
+    border-radius: 4px;
+    outline:2px solid white;
+    border: 1px solid tomato;
+    list-style: none;
+    cursor: pointer;
+}
+
+.navbar-profile-dropdown li{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+
+}
+
+.navbar-profile-dropdown img{
+    width: 20px;
+    
+}
+.navbar-profile-dropdown li:hover{
+    color: tomato;
+}

@@ -1,0 +1,103 @@
+:root {
+    --theme-color: #FF6347;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+
+  .user-profile {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .user-profile h1 {
+    color: var(--theme-color);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: block;
+    border: 4px solid var(--theme-color);
+  }
+
+  .info {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .info p {
+    margin: 5px 0;
+    font-size: 16px;
+  }
+
+  .order-history {
+    margin-top: 20px;
+  }
+
+  .order-history h2 {
+    color: var(--theme-color);
+    margin-bottom: 10px;
+  }
+
+  .order-card {
+    background-color: #fefefe;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .order-card .details {
+    flex: 1;
+  }
+
+  .order-card .details p {
+    margin: 5px 0;
+  }
+
+  .order-card .reorder {
+    background-color: var(--theme-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .order-card .reorder:hover {
+    background-color: #e5533b;
+  }
+
+  @media (max-width: 768px) {
+    .user-profile {
+      padding: 15px;
+    }
+
+    .order-card {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .order-card .reorder {
+      margin-top: 10px;
+      width: 100%;
+    }
+  }

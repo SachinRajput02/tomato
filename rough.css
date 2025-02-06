@@ -1,0 +1,134 @@
+/* Navbar Container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  /* Left Section */
+  .navbar-left h3 {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    color: #49557e;
+    margin: 0;
+  }
+  
+  .navbar .logo {
+    width: max(10%, 80px);
+    margin-left: 8px;
+  }
+  
+  /* Center Section */
+  .navbar-center .shop_image {
+    width: max(6%, 60px);
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  /* Right Section */
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  /* Sign-In Button */
+  .navbar-sign-in button {
+    font-size: 16px;
+    color: #fff;
+    background-color: #ff6f61;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .navbar-sign-in button:hover {
+    background-color: #e65c50;
+  }
+  
+  /* Profile Dropdown */
+  .navbar-profile {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .navbar-profile .profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .navbar-profile-dropdown {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    list-style: none;
+    padding: 10px 0;
+    z-index: 1000;
+  }
+  
+  .navbar-profile:hover .navbar-profile-dropdown {
+    display: block;
+  }
+  
+  .navbar-profile-dropdown li {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    color: #49557e;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .navbar-profile-dropdown li:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .navbar-profile-dropdown img {
+    width: 16px;
+    margin-right: 10px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px 2%;
+    }
+  
+    .navbar-center,
+    .navbar-right {
+      margin-top: 10px;
+    }
+  
+    .navbar-right {
+      gap: 10px;
+    }
+  
+    .navbar-sign-in button {
+      padding: 8px 15px;
+    }
+  
+    .navbar-profile-dropdown li {
+      font-size: 12px;
+      padding: 8px 15px;
+    }
+  }
+  

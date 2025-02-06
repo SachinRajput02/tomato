@@ -1,0 +1,14 @@
+{
+    "name": "Food Del",
+    "short_name": "FoodDel",
+    "start_url": "http://localhost:5173/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#000000",
+    "serviceworker": {
+      "src": "service-worker.js",
+      "scope": "/",
+      "update_via_cache": "all"
+    }
+  }
+  
