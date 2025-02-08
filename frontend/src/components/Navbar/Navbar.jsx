@@ -71,7 +71,7 @@ const Navbar = ({ setShowLogin }) => {
               </li>
 
               <li
-                onClick={() => (window.location.href = `http://localhost:5173`)}
+                onClick={() => (window.location.href = `https://tomato-admin-arqd.onrender.com`)}
               >
                 <p>As a Seller</p>
               </li>
