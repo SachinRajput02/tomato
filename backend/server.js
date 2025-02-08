@@ -10,6 +10,8 @@ import dotenv from "dotenv";
 import sellerRouter from "./routes/sellerRoute.js";
 import sellerCartRouter from "./routes/sellerCartRoute.js";
 
+
+
 dotenv.config();
 
 // app config
