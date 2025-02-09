@@ -19,7 +19,7 @@ const registerSeller = async (req, res) => {
     if (!validator.isEmail(email))
       return res.json({ success: false, message: "Invalid email" });
 
-    const hashedPassword = await bcryptjs.hash(password, 10);
+    const hashedPassword = await bcrypt.hash(password, 10);
     const newseller = new sellerModel({
       name,
       email,
@@ -46,7 +46,7 @@ const loginSeller = async (req, res) => {
   const { email, password,fcmToken } = req.body;
   const seller = await sellerModel.findOne({ email });
 
-  if (!seller || !(await bcryptjs.compare(password, seller.password))) {
+  if (!seller || !(await bcrypt.compare(password, seller.password))) {
     return res.json({ success: false, message: "Invalid credentials or seller not exits" });
   }
 
