@@ -18,10 +18,7 @@ const razorpayInstance = new Razorpay({
 // // Place Order
 
 const placeOrder = async (req, res) => {
-  const frontendUrl =
-    process.env.FRONTEND_URL ||
-    "http://localhost:5173" ||
-    "http://localhost:5174";
+  const frontendUrl ="https://tomato-frontend-zaz5.onrender.com/";
 
   try {
     const { items, amount, shopname, address, userId } = req.body;
