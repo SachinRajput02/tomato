@@ -1,10 +1,13 @@
 const userModel = require("../models/userModel.js");
+const jwt = require('jsonwebtoken');
 
-import jwt from "jsonwebtoken";
+// import jwt from "jsonwebtoken";
 const bcryptjs = require('bcryptjs');
 
 // import bcrypt from "bcrypt";
 import validator from "validator";
+// const userModel = require("../models/userModel.js");
+const jwt = require("jsonwebtoken");
 
 // login user
 const loginUser = async (req, res) => {
