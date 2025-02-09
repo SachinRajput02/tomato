@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 const bcryptjs = require('bcryptjs');
 
 // import bcrypt from "bcrypt";
-const bcryptjs = require('bcryptjs');
+
 
 import validator from "validator";
 
