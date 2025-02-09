@@ -1,8 +1,8 @@
 import sellerModel from "../models/sellerModel.js";
 import jwt from "jsonwebtoken";
-const bcryptjs = require('bcryptjs');
 
-// import bcrypt from "bcrypt";
+
+import bcrypt from "bcryptjs";
 
 
 import validator from "validator";
