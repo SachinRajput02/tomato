@@ -1,5 +1,6 @@
 import express from "express"
-import { loginUser,registerUser } from "../controllers/userController.cjs"
+import pkg from '../controllers/userController.cjs';
+const { loginUser,registerUser } = pkg;
 
 const userRouter = express.Router()
 userRouter.post("/register",registerUser)
