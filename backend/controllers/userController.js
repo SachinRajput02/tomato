@@ -1,4 +1,4 @@
-import userModel from "../models/userModel.mjs";
+import userModel from "../models/userModel.js";
 import jwt from "jsonwebtoken";
 const bcryptjs = require('bcryptjs');
 
