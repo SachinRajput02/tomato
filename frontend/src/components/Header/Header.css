@@ -1,12 +1,12 @@
 .header{
     height: 34vw;
-    margin: 30px auto;
+    margin: 5px auto;
     background: url('../../assets/frontend_assets/header_img3.jpg') no-repeat;
     background-size: cover;
     background-position: center;
     
     position: relative;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 .header-contents{
     position:absolute;
@@ -57,6 +57,9 @@
 }
 @media(max-width:750px){
     
+    .header{
+        border-radius: 5px;
+    }
     .header-contents{
         max-width: 90%;
     }

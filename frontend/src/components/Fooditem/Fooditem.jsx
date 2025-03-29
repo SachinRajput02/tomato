@@ -12,7 +12,7 @@ const Fooditem = ({ id, name, price, description, image,shopname }) => {
       <div className="food-item-card-container">
         <div className="food-item-img-container">
           <img
-            src={url + "/images/" + image}
+            src={image||url + "/images/" + image}
             alt=""
             className="food-item-image"
           />
