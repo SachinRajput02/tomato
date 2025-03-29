@@ -125,9 +125,13 @@
 .navbar-sign-in-drop-down li:hover{
     color: tomato;
 }
+
 .navbar-profile{
     position: relative;
     cursor: pointer;
+}
+.menu_icon{
+   display: none;
 }
 .navbar-profile-dropdown{
     position: absolute;
@@ -218,6 +222,13 @@
     }
     .navbar-search-bar{
         display: none;
+    }
+    .profile_icon{
+        display: none;
+    }
+    .menu_icon{
+        display: flex;
+        cursor: pointer;;
     }
     
 }

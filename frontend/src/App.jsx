@@ -7,6 +7,7 @@ import Cart from './pages/Cart/Cart'
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
 import Profile from './pages/Profile/Profile.jsx'
 import Footer from './components/Footer/Footer'
+import BottomBar from './components/BottomBar/BottomBar.jsx'
 import LoginPopup from './components/LoginPopup/LoginPopup'
 import './App.css';
 import Verify from './pages/Verify/Verify.jsx'
@@ -45,6 +46,8 @@ const App = () => {
       
     </div>
     <Footer/>
+    <BottomBar/>
+
     </>
   )
 }

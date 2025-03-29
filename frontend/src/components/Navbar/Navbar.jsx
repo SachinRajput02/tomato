@@ -81,6 +81,7 @@ const Navbar = ({ setShowLogin }) => {
                 <p>As a User</p>
               </li>
 
+
               <li
                 onClick={() => (window.location.href = `https://tomato-admin-arqd.onrender.com`)}
               >
@@ -90,7 +91,9 @@ const Navbar = ({ setShowLogin }) => {
           </div>
         ) : (
           <div className="navbar-profile">
-            <img src={assets.profile_icon} alt="" />
+
+            <img className="profile_icon" src={assets.profile_icon} alt="" />
+            <img className="menu_icon" src={assets.menuicon} alt="" />
             <ul className="navbar-profile-dropdown">
             <li onClick={() => navigate("/userProfile")}>
                 <img src={assets.user_icon} alt="" />
