@@ -36,20 +36,27 @@ const Navbar = ({ setShowLogin }) => {
         >
           menu
         </a>
-        <a
+        {/* <a
           href="#app-download"
           onClick={() => setMenu("mobile-app")}
           className={menu === "mobile-app" ? "active" : ""}
         >
           mobile-app
-        </a>
+        </a> */}
         <a
           href="#footer"
           onClick={() => setMenu("contact-us")}
           className={menu === "contact-us" ? "active" : ""}
         >
-          contsct us
+          contact us
         </a>
+        <Link
+          to="/about"
+          onClick={() => setMenu("about-us")}
+          className={menu === "about-us" ? "active" : ""}
+        >
+          about us
+        </Link>
       </ul>
       <div className="navbar-right">
         <img src={assets.search_icon} alt="" />

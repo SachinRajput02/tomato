@@ -115,7 +115,7 @@ const Home = ({ setShowSellerLogin }) => {
 
           {/* Footer Section */}
           <footer className="seller-home-footer">
-            <p>Powered by Your Platform | Grow Your Business With Us</p>
+            <p>Powered by tomato| Grow Your Business With Us</p>
           </footer>
         </div>
       )}

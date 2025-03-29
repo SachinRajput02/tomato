@@ -1,15 +1,16 @@
 .explore-menu{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 5px;
 }
 .explore-menu h1{
+    font-size: max(2.5vw, 25px);
     color: #262626;
     font-weight: 500;
 
 }
 .explore-menu-text{
-    max-width: 60%;
+    max-width: 70%;
     color: #808080;
 }
 .explore-menu-list{
@@ -51,5 +52,17 @@
     .explore-menu-text{
         max-width: 100%;
         font-size: 14px;
+    }
+}
+@media (max-width:750px){
+    .explore-menu-list-item img{
+        width: 20vw;
+        min-width: 50px;
+    }
+    .explore-menu-list-item p{
+        font-size: 4vw;
+    }
+    .explore-menu-list{
+        gap: 10px;
     }
 }

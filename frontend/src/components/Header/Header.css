@@ -1,9 +1,12 @@
 .header{
     height: 34vw;
     margin: 30px auto;
-    background: url('/header_img.png') no-repeat;
-    background-size: contain;
+    background: url('../../assets/frontend_assets/header_img3.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    
     position: relative;
+    border-radius: 5px;
 }
 .header-contents{
     position:absolute;
@@ -14,34 +17,40 @@
     max-width: 50%;
     bottom: 10%;
     left: 6vw;
-    animation: fadeIn 3s;
+    animation: fadeIn 1s;
 }
 .header-contents h2{
     font-weight: 500;
-    color: white;
+    color:white;
     font-size: max(4.5vw,22px);
    
 }
 .header-contents p{
     color: white;
-    font: 1vw;
+    /* font: 0.1vw; */
     /* width: 200%; */
 }
 .header-contents button{
     border: none;
     color: #747474;
     font-weight: 500;
-    padding: 1vw 2.3vw;
+    padding: 0.8vw 2vw;
     background-color: white;
     font-size: max(1vw,13px);
     border-radius: 50px;
+    cursor: pointer;
+}
+
+.header-contents button:focus{
+    color: tomato;
+    
 }
 
 @media(max-width:1050px){
     
-    .header-contents{
+    /* .header-contents{
         max-width: 45%;
-    }
+    } */
     .header-contents p{
         width: 200%;
     }
@@ -49,13 +58,15 @@
 @media(max-width:750px){
     
     .header-contents{
-        max-width: 65%;
+        max-width: 90%;
     }
     .header-contents p{
         display: none;
     }
+    
     .header-contents button{
-        padding: 2vw 4vw;
+        padding: 1.5vw 3.5vw;
+        
         
     }
 }
