@@ -84,6 +84,9 @@ const LoginPopup = ({ setShowLogin }) => {
             placeholder="your E-mail"
             required
           />
+          {/* {currState === "Login" ? (
+            <></>
+          ) : ( 
           <input
             name="phone"
             onChange={onChangeHandler}
@@ -91,7 +94,7 @@ const LoginPopup = ({ setShowLogin }) => {
             type="phone"
             placeholder="your phone no."
             required
-          />
+          />)} */}
           <input
             name="password"
             onChange={onChangeHandler}
@@ -106,10 +109,14 @@ const LoginPopup = ({ setShowLogin }) => {
         <button type="submit">
           {currState === "Sign-Up" ? "Create account" : "Login"}
         </button>
-        <div className="login-popup-condition">
+        {currState === "Login" ?(
+          <></>
+        ): (
+          
+          <div className="login-popup-condition">
           <input type="checkbox" name="" id="" required />
           <p>By continuing, i agree to the terms of use & privacy policy.</p>
-        </div>
+        </div>)}
         {currState === "Login" ? (
           <p>
             Create a new account?{" "}

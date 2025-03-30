@@ -15,7 +15,7 @@
     font-size: 14px;
     color: #343a40;
     text-align: center;
-    cursor: pointer;
+    /* cursor: pointer; */
     /* user-select: none; */
     border-radius: 0 0 10px 10px;
     box-sizing: border-box;
@@ -30,11 +30,12 @@
     padding: 10px 20px;
     color: #343a40;
     text-decoration: none;
+    /* cursor: pointer; */
 }
+
 .bottombar__container__item img{
     width: 20px;
     height: 20px;
-    margin-right: 8px;
 }
 .bottombar__container__item p{
     margin: 0;
