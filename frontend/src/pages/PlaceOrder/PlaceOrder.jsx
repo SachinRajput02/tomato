@@ -70,7 +70,7 @@ const PlaceOrder = () => {
             amount: orders.amount * 100, // Amount in paise
             currency: "INR",
             order_id: paymentOrderId, // From your backend
-            name: "Your Company Name",
+            name: "Tomato.com",
             description: "Test Transaction",
             handler: async (response) => {
               
@@ -155,7 +155,7 @@ const PlaceOrder = () => {
 
   return (
     <form onSubmit={placeOrder} className="place-order">
-      <div className="place-order-left">
+      <div className="Address-Info">
         <p className="title">Delivery Information</p>
         <div className="multi-fields">
           <input

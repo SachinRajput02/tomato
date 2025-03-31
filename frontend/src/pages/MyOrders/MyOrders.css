@@ -1,5 +1,55 @@
+/* when user has no orders */
+.no-orders {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #fff8f2;
+    border: 1px solid #ffccb3;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.no-orders img {
+    width: 50px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.no-orders h3 {
+    color: #FF6347;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.no-orders p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.no-orders button {
+    background-color: #FF6347;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.no-orders button:hover {
+    background-color: #e5533b;
+}
+
+
+
+/* 
+when userhave orders */
 .my-orders{
-    margin: 50px 0px;
+    margin: 30px 0px;
 }
 .my-orders .container{
     display: flex;

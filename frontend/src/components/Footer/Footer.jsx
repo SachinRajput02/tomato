@@ -1,6 +1,7 @@
 import React from 'react'
 import './Footer.css'
 import { assets } from '../../assets/assets'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -8,7 +9,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-content-left">
           <img src={assets.logo} alt="" />
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium accusamus reprehenderit voluptates officia vero earum!</p>
+          <p>Stay connected with us! For any inquiries, feel free to contact us or call us. Follow us on social media for the latest updates and exclusive offers. We’re here to assist you 24/7!</p>
           <div className="footer-social-icon">
               <img src={assets.facebook_icon} alt="" /><img src={assets.linkedin_icon} alt="" /><img src={assets.twitter_icon} alt="" />
           </div>
@@ -18,7 +19,8 @@ const Footer = () => {
           <h2>COMPANY</h2>
           <ul>
               <li>Home</li>
-              <li>About Us</li>
+              <li><Link  to="/about">About Us</Link></li>
+              
               <li>Delivery</li>
               <li>Privacy Policy</li>
           </ul>

@@ -7,14 +7,18 @@
     grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
     align-items: center;
     color: grey;
-    font-size: max(1vw,12px);
+    gap: 10px;
+}
+.cart-items-title p{
+    margin: 0px;
+    font-size: max(1vw,15px);
 }
 .cart-items-item{
     margin: 10px 0px;
     color: black;
 }
 .cart-items-item img{
-    width: 50px;
+    width: 40px;
 
 }
 .cart hr{
@@ -26,7 +30,7 @@
     cursor: pointer;
 }
 .cart-bottom{
-    margin-top: 80px;
+    margin-top: 40px;
     display: flex;
     justify-content: space-between;
     gap: max(12vw,20px);
@@ -57,6 +61,7 @@
 
 }
 .cart-promocode{
+    
     flex: 1;
 }
 .cart-promocode p{
@@ -87,6 +92,10 @@
 
 }
 @media(max-width:750px){
+    .cart-items-title p{
+        margin: 0px;
+        font-size: max(.5vw,12px);
+    }
     .cart-bottom{
         flex-direction: column-reverse;
 

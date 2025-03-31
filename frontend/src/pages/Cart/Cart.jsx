@@ -53,9 +53,12 @@ const Cart = () => {
                   <p onClick={() => removeFromCart(item._id)} className="cross">
                     X
                   </p>
+                  
                 </div>
                 <hr />
+                
               </React.Fragment>
+              
             );
           }
           return null; // Avoid returning undefined for items not in the cart

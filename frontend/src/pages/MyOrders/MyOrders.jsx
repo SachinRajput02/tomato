@@ -30,7 +30,37 @@ const MyOrders = () => {
     <div className="my-orders">
       <h2>My Orders</h2>
       <div className="container">
-        {data.map((order, index) => {
+      {data.length === 0 ? (
+  <div className="no-orders">
+    <img src={assets.parcel_icon} alt="No Orders" />
+    <h3>No Orders Yet!</h3>
+    <p>Looks like you haven't placed any orders. Start shopping now!</p>
+    <button onClick={() => window.location.href = "/"}>Shop Now</button>
+  </div>
+) : (
+  data.map((order, index) => (
+    <div key={index} className="my-orders-order">
+      <img src={assets.parcel_icon} alt="" />
+      <p>{order.items.map((item, index) => (
+        index === order.items.length - 1 ? item.name + "X" + item.quantity : item.name + "X" + item.quantity + ", "
+      ))}</p>
+      <p>₹{order.amount}.00</p>
+      <p>Items: {order.items.length}</p>
+      <p><span>&#x25cf;</span><b>{order.status}</b></p>
+      <button onClick={() => {
+        if (!order.payment) {
+          alert("Payment is still pending for this order.");
+        } else {
+          console.log("Tracking order:", order);
+        }
+      }}>
+        {order.payment ? "Track Order" : "Payment Pending"}
+      </button>
+    </div>
+  ))
+)}
+
+        {/* {data.map((order, index) => {
           return (
             <div key={index} className="my-orders-order">
               <img src={assets.parcel_icon} alt="" />
@@ -57,7 +87,7 @@ const MyOrders = () => {
               {order.payment ? "Track Order" : "Payment Pending"}</button>
             </div>
           );
-        })}
+        })} */}
       </div>
     </div>
   );
