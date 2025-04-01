@@ -1,0 +1,121 @@
+Food Delivery App
+
+
+
+frontend=>
+
+1)first create food del folder open that  folder in vs code 
+2)"npm create vite@latest" run the command in terminal 
+3) Project name: ... frontend
+4) Select a framework: » React
+5) Select a variant: » JavaScript
+6)cd frontend
+7)npm install
+8)npm install react-router-dom
+9)clear previous made app-1)delete app.cssc
+			  2)clear app.jsx and type rafce
+		          3)inter the index.html and change the tittle name and icon of the web
+10)create componenets and page folder
+11)create a nabbar folder in component and  create navbar.jsx,navbar.css file inside the folder 
+12) in navbar.jsx import react from react and create function navbar using (rafce) and import navbar css file path using (import './Navbar.css') and in function create className navbar
+13) in App.jsx import react from react and create function App using (rafce) and create a classname app and inside classname  mount the component Navbar
+14) create your html and css code in respectively navbar.jsx and navbar.css component file in navbar component folder
+15)add component to app.jsx use Route and routes and browserrouter 
+16)
+
+
+
+
+backend=>
+
+
+1)close all the file that was initially opened 
+2)create a backend folder parallelly to the frontend folder
+3)open integrated terminal in backend folder
+4)run the command " npm init"
+5)then simply click enter enter...  . when entry point come type one more command server.js and again click enter enter enter... .
+6)package.json will created on that backend folder .
+7)we will create one more file server.js
+
+8) then enter the command in terminal "npm install {type dependencies name that we have to install for our backend } express mongoose{it is help us to connect with the database } jsonwebtoken{using this we will create the authentication system  } bcrypt{using his we will encryapet the user data and store in the data base} cors{using that we can give the permission to our frontend to connect with the backend} dotenv{using that we can use the environment variable in our project} body-parser{using this we will pass the data coming from through the user} multer{using this multer we can create the image store system} stripe{using that we will add the payment getways on the webpage  } validator{using this validator package we will check the password or email id is valid or not } nodemon {using the package when we will save our project the  server will be restarted  }    "   
+
+-add one script in package.json {"server":"nodemon server.js"
+
+creating folder structure
+
+9)this backend folder we will create a new folder and we will add the name config . in this one will store the configuration files like data base confi. file 
+10)after that one more folder in this back end and the name will be models . in this one we will store the models of our mongodb database 
+11)after that one more folder and we will provide the name middle ware in this one we will store all the middle Wares 
+13)after that one more folder and we will provide the name controllers in this controllers folder we will add this logic for our backend  .
+14)next we will create one more folder and here we will add the name routes 
+15)after that let's create one more folder and the name uploads . in this folder we will upload all the images uploaded by the user
+16)create a file ".env" in uploads
+17)we will create a basic module type express server in server.js. where we will be use ES6 feature.
+
+18)in package.json we will declare type and the type will be module save the changes
+19)in server.js . import express package from express, cors from cors package 
+
+20)one comment //app config and here we will be initialise our app using the express package
+
+21)define  port number where our server will be running
+
+22)one comment //middle ware and here we will be initialise our middle  ware(first middle ware will be express.json()) using this middle ware when ever we get the request from the frontend to backend that will be pass using this json.
+23)after that we will use cors using this we can access the backend from any frontend
+
+24)app.get method is http method using this we can request the data from the server 
+25)we pass a path and create a arrow function 
+
+26) run the express server to run we use app.listen and provide the port number  
+
+
+27) to run the server we will type script which is "npm run server "
+28)in the thunder clined we will test our api 
+29) after that we will set the data base to our backend for this we will use the mongo DB atlas data base 
+
+30) create your  connection string and we can access the database from the particular ip  ip address thats why add the ip address (with list entry 0.0.0.0)
+
+31)now we can access the databse from any ip add.
+
+32)in config folder create new file db.js
+33)in this file we cerate logic using that we can connect with the databse
+
+34)in server.js add db connection for this call db  function from config file
+
+34 )after this we will create the model using that we can store the product  in the database 
+35) in model create new file food model.js
+36) import mongoose and after that we create the schema where we will describe the food model properties 
+
+37)using this schema we will create the model 
+
+
+ 
+38) after that we will create the api using that we will add the new item in our database 
+39)for that we create a new file in controllers and name will be foodController.js
+
+40)create a new file in routes foodroutes.js
+import express ,addfood, multer and after that create one express router and using this router we can create get method ,post method and many other method
+
+41) in server.js first we create the api end point for the food route  and return the food routes.js file and here we create one  post request. we use the post method to send the data on the server and on the server our data will be processed and after that  we will get one response for example when we will a form that form data will we send using the post method and if i have to upload a file we have to use the post method 
+
+42)after that here we will create the logic using that the image will be saved in this upload folder .and create one storage using the multer disk storage method so let's create image storage engine .
+
+43)on the foodroute we have to use this middle ware to add this middle ware on this route here we will type" upload.single ("image ")".now our post method has been created next we will add the logic for this add food function.
+
+
+44)so we will open the foodcontroller.js file and here we will add the logic using that we can store the product data in the database .
+
+45) ** one error in food item adding (4.10 minute of video)
+
+
+
+Admin folder =>
+
+1) run command " npm create vite@latest . " 
+   select react , then select javascript , run "npm install"
+   after that run npm run dev 
+
+2)clear default app
+3)in src folder create assets, pages and commponents folder.put asssets in assets folder
+4)run " npm axios(using that we can create the network request like get,post etc ) react tostify(using that we create the tost notification  easily ) react router dom 
+
+5)

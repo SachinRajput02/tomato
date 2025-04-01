@@ -49,6 +49,10 @@
     background-color: tomato;
     font-size: 15px;
 }
+.login-popup-container button:focus{
+    background-color: rgb(36, 170, 60);
+  
+}
 .login-popup-condition{
     display: flex;
     align-items: start;

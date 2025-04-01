@@ -1,0 +1,9 @@
+user contains given features 
+1)name of the user ,string
+2)email,string
+3)password,string
+4)phone,string
+5)cart data , object =>basically save the id of those food that we want to add in user cart when we want to fetch cart then fetch the food_list and those items_id present in the cart show considerthose items in cart
+
+6)orders =>actually not save the orders we send the user_id to the order when we want to get the orders then considers those items those have our user_id
+7)address=>taking as object and set it to profile page 

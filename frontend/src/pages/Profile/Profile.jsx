@@ -37,7 +37,7 @@ const Profile = () => {
   const loadUserProfileData = async () => {
     try {
       const response = await axios.post(
-        `${url}/api/cart/userprofile`,
+        `${url}/api/userprofile/getUserProfile`,
         {},
         { headers: { token } }
       );
@@ -45,20 +45,18 @@ const Profile = () => {
         name,
         email,
         phone,
-        address1,
-        address2,
-        profilePic,
-        registrationDate,
+        // address,
+        // profilePic,
+        
       } = response.data;
 
       setUserData({
         name,
         email,
         phone,
-        address1,
-        address2,
-        profilePic: profilePic || assets.sachin_image, // Use default if not available
-        registrationDate,
+        address,
+        profilePic: profilePic , // Use default if not available
+        
       });
     } catch (error) {
       console.error("Error fetching user profile data:", error.message);
@@ -95,10 +93,6 @@ const Profile = () => {
         </p>
         {/* <p><strong>Address 1:</strong> {userData.address1 || "not provided"}</p> */}
         {/* <p><strong>Address 2:</strong> {userData.address2 || "not provided"}</p> */}
-        <p>
-          <strong>Registered On:</strong>{" "}
-          {userData.registrationDate || "Loading..."}
-        </p>
       </div>
 
       <div className="order-history">

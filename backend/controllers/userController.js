@@ -31,7 +31,7 @@ const createToken = (id) => {
 //register user
 
 const registerUser = async (req, res) => {
-  const { name, password, email,phone } = req.body;
+  const { name, password, email,phone ,address} = req.body;
   try {
     // checking is user already exists
     const exists = await userModel.findOne({ email });
@@ -60,6 +60,8 @@ const registerUser = async (req, res) => {
       email: email,
       password: hashedPassword,
       phone:phone,
+      address:address,
+    cartData: {},
     });
 
     const user = await newUser.save();

@@ -13,6 +13,7 @@ const userSchema =new mongoose.Schema({
           message: (props) => `${props.value} is not a valid phone number!`,
         },
       },
+    address : {type:Object},
     cartData:{type:Object,default:{}},
       
 },{minimize:false})

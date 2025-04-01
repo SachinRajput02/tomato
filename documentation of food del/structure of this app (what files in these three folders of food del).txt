@@ -1,0 +1,618 @@
+i making a web app  name of this app food-Del. structure of this web app is given below .in this app have two frontend one is admin and second is frontend , and one is backend .
+
+structure of this backend is like that it have react backend structure   and   it have three important folder first one is controllers and second one is models and third one is routes folder. and fourth thing it has server.js files .
+in controller folder have five controllers files first one is cartController.js second is foodController.js third is orderController.js fourth is sellerController.js and fifth is userController.js
+in models folder have four models files first one is foodModel.js second is orderModel.js third is sellermodel.js fourth is userModel.js .
+in routes folder have five routes files first one is cartRoute.js second is foodRoute.js third is orderRoute.js fourth is sellerRoute.js and fifth is userRoute.js.and server.js file in this backend.
+
+ structure of this admin is like that it have react structure  and its src folder have components folder and pages folder and one app.jsx file .
+components folder have two component first is Navbar it have two files Navbar.jsx and Navbar.css and second is Sidebar it have two files Sidebar.jsx and Sidebar.css . and in this src have scond folder is pages folder it have three folder first one is Add it have Add.jsx and Add.css filles  and second one is List it have List.jsx and List.css and third one is Orders it have Order.jsx and Orders.css files . and in src have file App.jsx .
+
+
+ structure of this frontend is like that it have react structure  and its src folder have components folder and pages folder and one app.jsx file .
+components folder have ten component first is App download it have two files AppDownload.jsx and AppDownload.css and second is context   it have two files context .jsx and context.css and third is ExplorMenu   it have two files  ExplorMenu.jsx and ExploreMenu.css and fourth is FoodDisplay   it have two files FoodDisplay.jsx and FoodDisplay.css and fifth is Fooditem   it have two files Fooditem.jsx and Fooditem.css and sixth is Footer  it have two files Footer.jsx and Footer.css  and seventh is Header it have two files Header.jsx and Header.css and eight is LoginPopup it have two files LoginPopup.jsx and LoginPopup.css and ninth is Navbar   it have two files Navbar.jsx and Navbar.css  and tenth is SellerLoginpopup   it have two files SellerLoginPopup .jsx and SellerLoginPopup.css . and in this src have scond folder is pages folder it have five  folder first one is cart it have Cart.jsx and Cart.css filles  and second one is Home it have Home.jsx and Home.css and third one is MyOrders it have MyOrders.jsx and MyOrders.css files and fourth one is PlaceOrder it have PlaceOrder.jsx and PlaceOrder.css files and fifth one is Verify it have Verify.jsx and Verify.css files . and in src have file App.jsx .
+
+
+
+
+functionality that i need in my app .give me this functionality .description of this functionality given below.
+in this app have a system of users means this app  have a login and registration system for user .if user login then the data of the user can show by this app .data of user like cartitems of user and other thing  .
+i want to create a similar functionality for seller or admin  if a seller login from frontend and then seller reach to admin pannel or admin frontend.at the time adding he add own data then these data items will go list page of seller list page not goes to other seller list page means his list page having only those items those added by him.
+and in orders page have only those items have in his list page and ordered by  users .and all the items of all seller show to all the users.
+
+if a user order a item then the order goes to that seller who added the item . 
+
+
+
+in this app some code files already have .you generate those files or code that need to fulfill my requirement or any file need change then do change and write a comment here.
+
+
+
+backend files given below ==>>
+controllers folder ==>
+
+sellerController.js 
+"""import sellerModel from "../models/sellerModel.js";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
+import validator from "validator";
+
+// Register Seller
+export const registerSeller = async (req, res) => {
+  const { name, email, password, shopName } = req.body;
+
+  try {
+    const exists = await sellerModel.findOne({ email });
+    if (exists) return res.json({ success: false, message: "Seller already exists" });
+
+    if (!validator.isEmail(email)) return res.json({ success: false, message: "Invalid email" });
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const seller = new sellerModel({ name, email, password: hashedPassword, shopName });
+    await seller.save();
+
+    const token = jwt.sign({ id: seller._id }, process.env.JWT_SECRET);
+    res.json({ success: true, token });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Error registering seller" });
+  }
+};
+
+// Seller Login
+export const loginSeller = async (req, res) => {
+  const { email, password } = req.body;
+  const seller = await sellerModel.findOne({ email });
+
+  if (!seller || !(await bcrypt.compare(password, seller.password))) {
+    return res.json({ success: false, message: "Invalid credentials" });
+  }
+  
+  const token = jwt.sign({ id: seller._id }, process.env.JWT_SECRET);
+  res.json({ success: true, token });
+};
+""""
+
+models folder ==>
+userModel.js
+"""import mongoose from "mongoose";
+const userSchema =new mongoose.Schema({
+    name:{type:String,required:true},
+    email:{type:String,required:true,unique:true},
+    password:{type:String,required:true},
+    cartData:{type:Object,default:{}}
+},{minimize:false})
+
+const userModel = mongoose.models.user || mongoose.model("user",userSchema);
+
+export default userModel;
+"""
+userRoute.js
+"""import express from "express"
+import { loginUser,registerUser } from "../controllers/userController.js"
+
+const userRouter = express.Router()
+userRouter.post("/register",registerUser)
+userRouter.post("/login",loginUser)
+
+export default userRouter ;
+"""
+sellerRoute.js
+"""
+import express from "express";
+import { registerSeller, loginSeller } from "../controllers/sellerController.js";
+
+const sellerRouter = express.Router();
+sellerRouter.post("/register", registerSeller);
+sellerRouter.post("/login", loginSeller);
+
+export default sellerRouter;
+"""
+
+server.js in backend ==>
+"""import express from "express"
+import cors from "cors"
+import { connectDB } from "./config/db.js"
+import foodRouter from "./routes/foodRoute.js"
+import userRouter from "./routes/userRoute.js"
+import 'dotenv/config'
+import cartRouter from "./routes/cartRoute.js"
+import orderRouter from "./routes/orderRoute.js"
+import dotenv from "dotenv"
+import sellerRouter from "./routes/sellerRoute.js"
+
+dotenv.config();
+
+
+// app config
+const app = express();
+const port = 4000;
+
+// middleware
+app.use(express.json());
+app.use(cors());
+
+// db conection 
+connectDB();
+
+//api endpoints 
+app.use("/api/food",foodRouter)
+app.use("/images",express.static('uploads'))
+app.use("/api/user",userRouter)
+app.use("/api/seller", sellerRouter);
+
+app.use("/api/cart",cartRouter)
+app.use("/api/order",orderRouter)
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send({ error: "Something went wrong!" });
+});
+app.get("/",(req,res)=>{
+    res.send("API Working");
+    
+    
+});
+
+app.listen(port,()=>{
+    console.log(`Server Started on http://localhost:${port}`)
+})
+"""
+
+
+
+
+
+ 
+admin frontend files given below ==>
+in components folder ==>
+====>pages folder
+Add.jsx
+"""import React, { useState } from 'react';
+import './Add.css';
+import axios from 'axios';
+import { assets } from '../../assets/assets';
+import { toast } from 'react-toastify';
+
+const Add = ({url}) => {
+    // const url = "http://localhost:4000"; // Ensure this is correct for your backend
+    const [image, setImage] = useState(false);
+    const [data, setData] = useState({
+        name: "",
+        description: "",
+        price: "",
+        category: "Salad"
+    });
+
+    const onChangeHandler = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setData(data => ({ ...data, [name]: value }));
+    };
+
+    const onSubmitHandler = async (event) => {
+        event.preventDefault();
+        const formData = new FormData();
+        formData.append("name", data.name);
+        formData.append("description", data.description);  // Fixed the typo here
+        formData.append("price", Number(data.price));
+        formData.append("category", data.category);
+        formData.append("image", image);
+
+        try {
+            const response = await axios.post(`${url}/api/food/add`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data', // Make sure the header is set for file upload
+                }
+            });
+
+            if (response.data.success) {
+                // Reset the form fields after successful submission
+                setData({
+                    name: "",
+                    description: "",
+                    price: "",
+                    category: "Salad"
+                });
+                setImage(false);
+                toast.success(response.data.message)
+            } else {
+                alert("Failed to add product.");
+            }
+        } catch (error) {
+            console.error('Error while submitting:', error);
+            alert('Failed to add product, please try again!');
+        }
+    };
+
+    return (
+        <div className='add'>
+            <form className='flex-col' onSubmit={onSubmitHandler}>
+                <div className="add-img-upload flex-col">
+                    <p>Upload Image</p>
+                    <label htmlFor="image">
+                        <img src={image ? URL.createObjectURL(image) : assets.upload_area} alt="" />
+                    </label>
+                    <input onChange={(e) => setImage(e.target.files[0])} type="file" id='image' hidden required />
+                </div>
+                <div className="add-product-name flex-col">
+                    <p>Product name</p>
+                    <input onChange={onChangeHandler} value={data.name} type="text" name='name' placeholder='Type here' />
+                </div>
+                <div className="add-product-description flex-col">
+                    <p>Product description</p>
+                    <textarea onChange={onChangeHandler} value={data.description} name='description' rows="6" placeholder='Write content here'></textarea>
+                </div>
+                <div className="add-category-price">
+                    <div className="add-category flex col">
+                        <p>Product category</p>
+                        <select onChange={onChangeHandler} name="category">
+                            <option value="Salad">Salad</option>
+                            <option value="Rolls">Rolls</option>
+                            <option value="Deserts">Deserts</option>
+                            <option value="Sandwich">Sandwich</option>
+                            <option value="Cake">Cake</option>
+                            <option value="Pure Veg">Pure Veg</option>
+                            <option value="Pasta">Pasta</option>
+                            <option value="Noodles">Noodles</option>
+                        </select>
+                    </div>
+                    <div className="add-price flex -col">
+                        <p>Product Price</p>
+                        <input onChange={onChangeHandler} value={data.price} type="Number" name='price' placeholder='$20' />
+                    </div>
+                </div>
+                <button type='submit' className='add-btn'>Add</button>
+            </form>
+        </div>
+    );
+};
+
+export default Add;
+""""
+List.jsx
+""""
+import React, { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+import "./List.css";
+
+const List = ({url}) => {
+  
+  const [list, setList] = useState([]);
+
+  const fetchlist = async () => {
+    const response = await axios.get(`${url}/api/food/list`);
+    console.log(response.data);
+    if (response.data.success) {
+      setList(response.data.data);
+    } else {
+      toast.error("Error");
+    }
+  }
+
+  const removeFood = async(foodId)=>{
+    const response = await axios.post(`${url}/api/food/remove`,{id:foodId});
+    await fetchlist();
+    if (response.data.success) {
+      toast.success(response.data.message)
+    } else {
+      toast.error("Error");
+    }
+  }
+
+  useEffect(() => {
+    fetchlist();
+  }, []);
+
+  return (
+    <div className="list add flex-col ">
+      <p>All Food List</p>
+      <div className="list-table">
+        <div className="list-table-format title">
+          <b>Image</b>
+          <b>Name</b>
+          <b>Category</b>
+          <b>Price</b>
+          <b>Action</b>
+        </div>
+        {list.map((item, index) => {
+          return (
+            <div className="list-table-format" key={index}>
+              <img  src={`${url}/images/`+item.image} alt="" />
+              
+
+              <p>{item.name}</p>
+              <p>{item.category}</p>
+              <p>${item.price}</p>
+              <p onClick={()=>removeFood(item._id)}  className="cursor">X</p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+export default List;
+""""
+Orders.jsx 
+"""
+import React from 'react'
+ import  './Orders.css'
+import { useState } from 'react'
+import axios from 'axios'
+import {toast} from 'react-toastify' 
+import { useEffect } from 'react'
+import { assets } from '../../../../frontend/src/assets/assets'
+
+
+const Orders = ({url}) => {
+  const [orders,setOrders] = useState([]);
+  const fetchAllOrders = async()=>{
+    const response = await axios.get(url+"/api/order/list");
+    if(response.data.success){
+      setOrders(response.data.data);
+      console.log(response.data.data)
+    }
+    else{
+      toast.error("Error ")
+    }
+  }
+
+
+  const statusHandler = async(event,orderId )=>{
+    const response = await axios.post(`${url}/api/order/status`,{
+      orderId,
+      status:event.target.value
+    })
+    if (response.data.success) {
+       fetchAllOrders();
+    }
+    
+  } 
+
+
+
+  useEffect(()=>{
+    fetchAllOrders();
+  },[])
+
+
+  return (
+    <div className='order add'>
+      <h3>Order page</h3>
+      <div className="order-list">
+        {orders.map((order,index)=>(
+          <div key={index} className="order-item">
+            <img src={assets.parcel_icon} alt="" />
+            <div>
+              <p className="order-item-food">
+                {order.items.map((item,index)=>{
+                  if (index===order.items.length-1) {
+                    return item.name + " X " + item.quantity
+                  }
+                  else{
+                    return item.name +" X " +item.quantity + " , "+ " "
+                  }
+                })}
+              </p>
+              <p className="order-item-name">{order.address.firstName+" "+order.address.lastName}</p>
+              <div className="order-item-address">
+              <p>{order.address.street+","}</p>
+              <p>{order.address.city+","+order.address.state+","+order.address.country+","+order.address.zipcode}</p>
+              </div>
+                <p className="order-item-phone">{order.address.phone}</p>
+            </div>
+            <p>Items : {order.items.length}</p>
+            <p>${order.amount}</p>
+                <select onChange={(event)=>statusHandler(event,order._id)} value={order.status}>
+                  <option value="Food Processing">Food Processing</option>
+                  <option value="Out for delivery">Out for delivery</option>
+                  <option value="Delivered">Delivered</option>
+                </select>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export default Orders
+""""
+ frontend files given below====>>
+components folder ==>>
+
+SellerLoginPopup.jsx
+"""import React, { useState, useContext } from 'react';
+import './SellerLoginPopup.css';
+import axios from 'axios';
+import { StoreContext } from '../context/StoreContext';
+import { assets } from '../../assets/assets';
+import { useNavigate } from 'react-router-dom';
+
+
+
+
+const SellerLoginPopup = ({ setShowSellerLogin }) => {
+
+  const navigate = useNavigate(); 
+
+  const { url, setToken } = useContext(StoreContext);
+  const [currState, setCurrState] = useState('Sign-Up');
+  const [data, setData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    shopName: ''
+  });
+
+  const onChangeHandler = (event) => {
+    const { name, value } = event.target;
+    setData((prev) => ({ ...prev, [name]: value }));
+  };
+
+
+  const onSubmitHandler = async (event) => {
+    event.preventDefault();
+    let endpoint = url + (currState === 'Login' ? '/api/seller/login' : '/api/seller/register');
+    const response = await axios.post(endpoint, data);
+
+    if (response.data.success) {
+      setToken(response.data.token);
+      localStorage.setItem('sellerToken', response.data.token);
+      setShowSellerLogin(false);
+      window.location.href = 'http://localhost:5173/';
+    } else {  
+      alert(response.data.message);
+    }
+  };
+
+
+
+  return (
+    <div className="login-popup">
+      <form onSubmit={onSubmitHandler} className="login-popup-container">
+        <div className="login-popup-title">
+          <h2>{currState}</h2>
+          <img onClick={() => setShowSellerLogin(false)} src={assets.cross_icon} alt="Close" />
+        </div>
+        <div className="login-popup-inputs">
+          {currState === 'Sign-Up' && (
+            <>
+              <input name="name" onChange={onChangeHandler} value={data.name} type="text" placeholder="Your Name" required />
+              <input name="shopName" onChange={onChangeHandler} value={data.shopName} type="text" placeholder="Shop Name" required />
+            </>
+          )}
+
+
+          <input name="email" onChange={onChangeHandler} value={data.email} type="email" placeholder="E-mail" required />
+          <input name="password" onChange={onChangeHandler} value={data.password} type="password" placeholder="Password" required />
+        </div>
+        <button type="submit">{currState === 'Sign-Up' ? 'Create Shop' : 'Login'}</button>
+        {currState === 'Login' ? (
+          <p>No shop? <span onClick={() => setCurrState('Sign-Up')}>Register here</span></p>
+        ) : (
+          <p>Already have a shop? <span onClick={() => setCurrState('Login')}>Login here</span></p>
+        )}
+      </form>
+    </div>
+  );
+};
+
+export default SellerLoginPopup;
+"""
+Navbar.jsx
+
+import React, { useContext, useState } from 'react'
+import './Navbar.css'
+import { assets } from '../../assets/assets'
+import { Link, useNavigate } from 'react-router-dom'
+import { StoreContext } from '../context/StoreContext'
+const Navbar = ({setShowLogin,setShowSellerLogin}) => {
+
+  const[menu,setMenu]=useState("home")
+
+  const{getTotalCartAmount,getTotalCartQuantity,token,setToken}=useContext(StoreContext);
+  
+  const navigate = useNavigate();
+  const logout = () =>{
+    localStorage.removeItem("token");
+    setToken("");
+    navigate("/");
+  }
+  
+  return (
+    <div className='navbar'>
+      <Link to= '/'><img src={assets.logo} alt="" className="logo" /></Link>
+      <ul className="navbar-menu">
+        <Link to='/' onClick={()=>setMenu("home")} className={menu==="home"?"active":""}>home</Link>
+        <a href='#explore-menu' onClick={()=>setMenu("menu")} className={menu==="menu"?"active":""}>menu</a>
+        <a href='#app-download' onClick={()=>setMenu("mobile-app")} className={menu==="mobile-app"?"active":""}>mobile-app</a>
+        <a href='#footer' onClick={()=>setMenu("contact-us")} className={menu==="contact-us"?"active":""}>contsct us</a>
+      </ul>
+      <div className="navbar-right">
+        <img src={assets.search_icon} alt="" />
+        <div className="navbar-search-icon">
+          <Link to='/cart' ><img src={assets.basket_icon} alt="" /></Link>
+          <div className={getTotalCartAmount()===0?"":"dot"}>{getTotalCartQuantity()}</div>
+        </div> 
+        
+        
+        {!token? <div className="navbar-sign-in">
+          <button >Sign in</button>
+          <ul className="navbar-sign-in-drop-down">
+            <li onClick={()=>setShowLogin(true)
+        }><p>As a User</p></li>
+            <li onClick={()=>setShowSellerLogin(true)}><p>As a Seller</p></li>
+            
+          </ul>
+        </div>
+        : <div className='navbar-profile'>
+          <img src={assets.profile_icon} alt="" />
+          <ul className="navbar-profile-dropdown">
+            <li onClick={()=>navigate('/myorders')}><img src={assets.bag_icon} alt="" /><p>Orders</p></li>
+            <hr />
+            <li onClick={logout}><img src={assets.logout_icon} alt="" /><p>Logout</p></li>
+          </ul>
+          </div>}
+
+    </div>
+      
+    </div>
+  )
+}
+
+export default Navbar
+""""
+App.jsx in frontend ==>
+""""
+import React, { useState } from 'react'
+
+import Navbar from './components/Navbar/Navbar'
+import {Route, Routes}from 'react-router-dom'
+import Home from './pages/Home/Home'
+import Cart from './pages/Cart/Cart'
+import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
+import Footer from './components/Footer/Footer'
+import LoginPopup from './components/LoginPopup/LoginPopup'
+import SellerLoginPopup from './components/SellerLoginPopup/SellerLoginPopup'
+import Verify from './pages/Verify/verify'
+import MyOrders from './pages/myOrders/MyOrders'
+
+
+
+
+
+
+const App = () => {
+
+  const [showLogin,setShowLogin]=useState()
+  const [showSellerLogin, setShowSellerLogin] = useState(false);
+
+
+  return (
+    <>
+    {showLogin?<LoginPopup setShowLogin={setShowLogin} />:<></>}
+
+    {showSellerLogin && <SellerLoginPopup setShowSellerLogin={setShowSellerLogin} />}
+
+    <div className='app'>
+      
+      <Navbar setShowSellerLogin={setShowSellerLogin} setShowLogin={setShowLogin} />
+      <Routes>
+        <Route path='/'element={<Home/>}/>
+        <Route path='/cart'element={<Cart/>}/>
+        <
+          Route path='/order'element={<PlaceOrder/>}/>
+        <Route path='/verify' element={<Verify/>}/>
+        <Route path='/myorders' element={<MyOrders/>}/>
+      </Routes>
+      
+    </div>
+    <Footer/>
+    </>
+  )
+}
+
+export default App
+""""
