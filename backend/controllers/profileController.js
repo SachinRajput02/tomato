@@ -1,4 +1,4 @@
-import React from 'react'
+
 import userModel from "../models/userModel.js";
 
 const getUserProfile = async (req,res)=>{
