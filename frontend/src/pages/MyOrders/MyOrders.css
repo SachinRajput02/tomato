@@ -1,0 +1,343 @@
+/* General styles */
+.my-orders {
+  margin: 10px 0px;
+  padding-top: 20px;
+}
+
+.my-orders h2 {
+  text-align: center;
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Container */
+.my-orders .container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* When no orders */
+.no-orders {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #fff8f2;
+  border: 1px solid #ffccb3;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 450px;
+  margin: 40px auto;
+}
+
+.no-orders img {
+  width: 60px;
+  margin-bottom: 15px;
+}
+
+.no-orders h3 {
+  font-size: 22px;
+  color: #FF6347;
+  margin-bottom: 10px;
+}
+
+.no-orders p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.no-orders button {
+  background-color: #FF6347;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.no-orders button:hover {
+  background-color: #e5533b;
+}
+
+
+
+.food-images-order-header{
+  padding-left: 40%;
+  justify-content: center;
+  width: fit-content;
+  width: 100%;
+  align-items: center;
+}
+.food-images-order-header img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+/* Each order card */
+.my-orders-order {
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  padding: 10px;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.my-orders-order img {
+  width: 60px;
+  height: auto;
+}
+
+/* Order Details */
+.my-orders-order p {
+  margin: 5px 0;
+  /* flex: 1 1 150px; */
+  font-size: 14px;
+  color: #555;
+}
+
+.my-orders-order p span {
+  color: tomato;
+}
+
+.my-orders-order p b {
+  color: #333;
+}
+
+/* Buttons */
+.my-orders-order button {
+  background-color: #ffe1e1;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+  color: #333;
+}
+
+.my-orders-order button:hover {
+  background-color: #ffc1c1;
+}
+
+/* Chatbox */
+.chat-box {
+ background: linear-gradient(to bottom right, #51ad8b, #ffffff);
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  flex-direction: column ;
+  
+  /* margin-top: 100px; */
+
+  width: 100%;
+  /* display: block !important; */
+
+  max-width: 600px;
+}
+
+.chat-box .messages {
+  
+  max-height: 300px;
+  overflow-y: auto;
+  flex:1 ;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 5px;
+}
+
+.chat-box .message {
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.chat-box .message.left {
+  background-color: #e0e0e0;
+  align-self: flex-start;
+}
+
+.chat-box .message.right {
+  background-color: #d1e7dd;
+  align-self: flex-end;
+}
+
+.chat-box .timestamp {
+  font-size: 10px;
+  color: #888;
+  text-align: right;
+  margin-top: 5px;
+}
+
+.chat-box form {
+  display: flex;
+  gap: 10px;
+}
+
+.chat-box input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.chat-box button {
+  padding: 10px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.chat-box button:hover {
+  background-color: #0056b3;
+}
+
+
+
+.rating-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  list-style: none;
+}
+.rating-selector li {
+  cursor: pointer;
+  font-size: 15px;
+  color: #FF6347; 
+  transition: color 0.3s;
+  padding: 0px 5px;
+  border: 1px solid #312727;
+  border-radius: 50%;
+}
+.food-review-div{
+  width: 100%;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #8094a5;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.food-review-item{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  /* justify-content: space-between;
+   */
+   
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.seller-review-div{
+    margin-top: 10px;
+  }
+
+
+/* review model */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.review-modal {
+ background: linear-gradient(to bottom right, #4e6d62, #ffffff);
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+}
+.review-modal button{
+  margin-bottom: 10px;
+}
+
+.review-modal h3 {
+  margin-top: 0;
+}
+
+.review-modal textarea {
+  width: 100%;
+  margin-top: 10px;
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+  .food-images-order-header{
+    padding-left: 0%;
+    align-items: fixed;
+  }
+  .my-orders-order {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .my-orders-order img {
+      align-self: center;
+  }
+
+  .my-orders-order p, 
+  .my-orders-order button {
+      width: 100%;
+      text-align: left;
+  }
+
+  .my-orders-order button {
+      font-size: 13px;
+  }
+
+  .chat-box {
+      max-width: 100%;
+
+  }
+}
+
+@media (max-width: 600px) {
+  .food-review-div{
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .no-orders {
+      padding: 20px 10px;
+  }
+  
+  .no-orders button {
+      width: 100%;
+  }
+
+  .chat-box form {
+      flex-direction: column;
+  }
+
+  .chat-box input, 
+  .chat-box button {
+      width: 100%;
+  }
+}

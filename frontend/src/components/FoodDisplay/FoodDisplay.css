@@ -1,0 +1,135 @@
+.food-display{
+    margin-top: 30px;
+}
+
+  .tabs-filter-switches-ControlBar{
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    /* margin-left: 0rem; */
+    list-style: none;
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+
+  }
+  .tabs-filter-switches-ControlBar::-webkit-scrollbar {
+    display: none;
+  }
+  .tabs-filter-switches-ControlBar li{
+    display:flex;
+    border: 1px solid #798e9f;
+    margin: 0 5px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    align-items: center;
+    cursor: pointer;
+  }
+  .tabs-filter-switches-ControlBar li.active{
+    background-color: #798e9f;
+    color: white;
+  }
+.food-display h2{
+    font-size: max(2vw,24px);
+    font-weight: 600;
+}
+.food-display-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
+    margin-top: 30px;
+    gap: 30px;
+    row-gap: 50px;
+}
+ 
+hr{
+    margin: 10px 0px;
+    height: 2px;
+    background-color: #c4c2c2;
+    border: none;
+}
+
+
+.enhanced-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.sort-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort-control select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.reset-button {
+  background-color: #ff5252;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.reset-button:hover {
+  background-color: #e53935;
+}
+
+.filter-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.no-food-message {
+  text-align: center;
+  padding: 2rem;
+  background: #fef2f2;
+  border: 2px dashed #ff4b4b;
+  border-radius: 10px;
+  margin-top: 2rem;
+  color: #c53030;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.no-food-message h3 {
+  margin: 0;
+  font-size: 1.8rem;
+  display: inline-block;
+  animation: bounce 1.5s infinite;
+}
+
+.no-food-message p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}

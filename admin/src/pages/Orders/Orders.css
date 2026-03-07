@@ -1,0 +1,253 @@
+.order{
+  width: 100%;
+}
+
+
+
+.order-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 30px 0 10px;
+  color: #333;
+  padding-left: 10px;
+  border-left: 4px solid tomato;
+}
+
+.order-item {
+  display: flex;
+  /* grid-template-columns: 60px 1.5fr 1fr; */
+  align-items: flex-start;
+  gap: 20px;
+  border: 1px solid #f5a623;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  font-size: 15px;
+  background: #fffefc;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.order-item img {
+  width: 50px;
+  margin-top: 5px;
+}
+
+.order-item-food,
+.order-item-name {
+  font-weight: 600;
+  color: #2d2d2d;
+}
+
+.order-item-name {
+  margin: 10px 0 6px;
+  font-size: 16px;
+}
+
+.order-item-address {
+  color: #777;
+  font-size: 14px;
+}
+
+.order-item-phone {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #444;
+}
+
+.order-status {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.order-status select {
+  background-color: #ffe8e4;
+  border: 1px solid tomato;
+  border-radius: 8px;
+  padding: 10px;
+  width: 160px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.chat-toggle {
+  background-color: #5e60ce;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.chat-toggle:hover {
+  background-color: #4e4fcf;
+}
+
+.no-orders {
+  text-align: center;
+  padding: 60px 20px;
+  color: #888;
+  font-size: 16px;
+  border: 2px dashed tomato;
+  border-radius: 12px;
+  margin-top: 40px;
+  background-color: #fff9f7;
+}
+
+.no-orders img {
+  width: 80px;
+  opacity: 0.6;
+  margin-bottom: 20px;
+}
+
+/* Chat styles already in place (from your CSS) — keep them as is */
+
+
+
+
+/* .order-item{
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr ;
+    align-items: start;
+    gap: 30px;
+    border: 1px solid  tomato;
+    padding: 20px ;
+    margin: 30px 0px ;
+    font-size: 14px;
+    color: #505050;
+}
+.order-item-food, .order-item-name{
+    font-weight: 600;
+
+}
+.order-item-name{
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+.order-item-address{
+    margin-bottom: 10px;
+}
+.order-item select{
+    background-color: #ffe8e4;
+    border: 1px solid tomato;
+    width: max(10vw,120px);
+    padding: 10px;
+    outline: none;
+}
+
+.no-orders {
+    text-align: center;
+    padding: 60px 20px;
+    color: #888;
+    font-size: 16px;
+    border: 2px dashed tomato;
+    border-radius: 12px;
+    margin-top: 40px;
+    background-color: #fff9f7;
+  }
+  
+  .no-orders img {
+    width: 80px;
+    opacity: 0.6;
+    margin-bottom: 20px;
+  } */
+
+/* chatbox css  */
+.chat-box {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 12px;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chat-box .messages {
+    max-height: 250px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 5px;
+    scroll-behavior: smooth;
+  }
+  
+  .chat-box .message {
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 75%;
+    position: relative;
+    word-wrap: break-word;
+  }
+  
+  .chat-box .message.left {
+    background-color: #e0e0e0;
+    align-self: flex-start;
+  }
+  
+  .chat-box .message.right {
+    background-color: #d1e7dd;
+    align-self: flex-end;
+  }
+  
+  .chat-box .timestamp {
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 4px;
+    text-align: right;
+  }
+  
+  .chat-box form {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .chat-box input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  .chat-box button {
+    padding: 8px 14px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .chat-box button:hover {
+    background-color: #0056b3;
+  }
+  
+
+  
+
+@media (max-width:1000px) {
+    .order-item{
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        width: 280px;
+        padding: 15px 20px;
+
+
+    }
+    .order-item select{
+        padding: 5px;
+        font-size: 12px;
+
+    }
+    .order-item img{
+        width: 40px;
+    }
+}

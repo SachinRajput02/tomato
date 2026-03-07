@@ -1,0 +1,82 @@
+/* src/pages/FoodItemDetails.css */
+
+.food-details-container {
+  max-width: 900px;
+  margin: 10px auto;
+  padding: 5x;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.image-details-container{
+    margin-top: 15px    ;
+    display: flex;
+    gap: 10%;
+}
+
+.food-image{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    object-fit: cover;
+    border-radius:6px;
+}
+.food-item-info-fooddetails{
+    width: 50%;
+    position: relative;
+    gap: 20px;
+}
+.food-item-counter-fooddetails{
+    position:static;
+}
+
+.price-addtocart-button{
+    position: static;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.price-addtocart-button button{
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    background-color: gray; /* Tomato color */
+    color: white;
+}   
+
+.food-details-tabs  li  {
+    margin-right: 50px ;
+   
+}
+
+.description-photos-Reviews{
+    /* border: 1px solid #798e9f; */
+    border-radius: 5px;
+    min-height: 100px;
+}
+.nonactivetab{
+    display: none;
+}
+
+
+@media(max-width:750px){
+
+    .image-details-container{
+    display: block;
+    
+}
+    .food-item-info-fooddetails{
+    width: 100%;
+}
+.food-details-tabs  li  {
+    margin-right: 5px ;
+   
+}
+.food-item-info-fooddetails{
+    gap: 5px;
+}
+    
+}
+
+
+

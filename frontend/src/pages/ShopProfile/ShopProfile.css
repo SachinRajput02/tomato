@@ -1,0 +1,42 @@
+.shop-details-components{
+  height: fit-content;
+  
+}
+
+.shop-details-tabs li {
+  width: 100%;   
+}
+.no-review-div {
+  text-align: center;
+  padding: 30px;
+  background-color: #f8f8f8;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.no-review-div p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+.no-review-img {
+  width: 120px;
+  height: auto;
+  opacity: 0.8;
+}
+
+
+/* Simple fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

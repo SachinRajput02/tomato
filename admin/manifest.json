@@ -1,0 +1,13 @@
+{
+    "name": "Food Del",
+    "short_name": "FoodDel",
+    "start_url": "https://tomato-admin-arqd.onrender.com/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#000000",
+    "serviceworker": {
+      "src": "service-worker.js",
+      "scope": "/",
+      "update_via_cache": "all"
+    }
+  }

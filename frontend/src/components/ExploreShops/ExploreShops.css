@@ -1,0 +1,154 @@
+.explore-shop {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 15px;
+}
+
+.explore-shop h2 {
+    font-size: max(2vw, 25px);
+    color: #262626;
+    font-weight: 500;
+}
+
+.explore-shop-text {
+    max-width: 70%;
+    color: #808080;
+}
+
+/* .explore-shop-list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+    margin: 10px 0px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scroll-snap-type: x mandatory;
+}
+
+.explore-shop-list::-webkit-scrollbar {
+    display: none;
+} */
+
+.explore-shop-list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+    margin: 10px 0px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 10px; 
+}
+
+.explore-shop-list-item {
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+    cursor: pointer;
+}
+
+.explore-shop-list::-webkit-scrollbar {
+    display: none;
+}
+
+
+.explore-shop-list-item {
+    background-color: #fafafa;
+    border-radius: 12px;
+    padding: 10px 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+        scroll-snap-align: start;
+    flex: 0 0 auto;
+    cursor: pointer;
+    width: 140px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+.explore-shop-list-item:hover {
+    transform: scale(1.07);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.explore-shop-list-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    background-color: #eee;
+}
+
+.explore-shop-list-item p {
+    margin-top: 10px;
+    font-weight: 500;
+    color: #333;
+    font-size: 15px;
+    text-transform: capitalize;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.explore-shop-list-item .active {
+    border: 4px solid tomato;
+    padding: 2px;
+}
+
+.explore-shop hr {
+    margin: 10px 0px;
+    height: 2px;
+    background-color: #c4c2c2;
+    border: none;
+}
+
+.nearby-shop-section {
+    display: flex;
+    font-size: max(1vw, 13px);
+    gap: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.nearby-shop-search-area-and-manage-shop-area {
+    border: 1px solid #c4c2c2;
+    border-radius: 5px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: #f5f5f5;
+    width: 100%;
+    max-width: 400px;
+}
+
+
+
+@media (max-width: 1050px) {
+    .explore-shop-text {
+        max-width: 100%;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 750px) {
+    .explore-shop-list-item {
+        width: 100px;
+        padding: 10px;
+    }
+
+    .explore-shop-list-item img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .explore-shop-list-item p {
+        font-size: 4vw;
+    }
+
+    .explore-shop-list {
+        gap: 10px;
+    }
+}
+

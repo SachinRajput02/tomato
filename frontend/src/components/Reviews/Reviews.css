@@ -1,0 +1,81 @@
+.rating-date{
+    display: flex;
+}
+/* Reviews.css */
+
+.review-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.user-details {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.user-details img {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 12px;
+  border: 2px solid #ddd;
+}
+
+.user-details p {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+}
+
+.rating-date {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+
+.rating li {
+  margin-right: 4px;
+  font-size: 0.95rem;
+}
+
+ 
+
+.rating-date span {
+  background-color: #f1f1f1;
+  padding: 2px 8px;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  font-weight: 500;
+  color: #555;
+}
+
+.rating-date p {
+  font-size: 0.8rem;
+  color: #777;
+  margin: 0;
+}
+
+.comment {
+  font-size: 0.95rem;
+  color: #444;
+  margin-top: 8px;
+  line-height: 1.4;
+  white-space: pre-line;
+}
+.comment {
+  max-height: 200px;
+  overflow-y: auto;
+  word-wrap: break-word;
+}
+

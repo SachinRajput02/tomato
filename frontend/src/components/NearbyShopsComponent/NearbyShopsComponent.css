@@ -1,0 +1,100 @@
+
+   .nearby-container {
+    padding: 1rem;
+  }
+
+  .distance-selector{
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    list-style: none;
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+
+  }
+  .distance-selector::-webkit-scrollbar {
+    display: none;
+  }
+  .distance-selector  li{
+    border: 1px solid #798e9f;
+    margin: 0 5px;
+    width: 80px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    align-items: center;
+    cursor: pointer;
+  }
+  .distance-selector li.active{
+    background-color: #798e9f;
+    color: white;
+  }
+  
+  .map-toggle-btn {
+    margin-bottom: 10px;
+    padding: 8px 16px;
+    background-color: #798e9f;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .map-container {
+    height: 400px;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .shop-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 10px;
+  }
+  
+  .shop-card {
+    width: 240px;
+    /* padding: 12px; */
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .shop-img {
+    width: 100%;
+    object-fit: cover;
+    /* border-radius: 8px; */
+
+  }
+  
+  .shop-info {
+    margin-top: 10px;
+    padding: 0 10px;
+  }
+  .shopname-rating{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .heart-btn {
+    margin-top: 10px;
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+    align-self: flex-end;
+  }
+  
+  .distance-heart{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
