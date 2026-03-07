@@ -1,5 +1,5 @@
 // backend/controllers/autocompleteController.js
-import autocompleteService from "../../services/AuraCastServices/autocompleteService.js";
+import autocompleteService from "../../services/AuraCastservices/autocompleteService.js";
 
 const getLocationSuggestions = async (req, res) => {
   try {

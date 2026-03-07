@@ -1,5 +1,5 @@
 // backend/controllers/weatherController.js
-import nasaService from "../../services/AuraCastServices/nasaService.js";
+import nasaService from "../../services/AuraCastservices/nasaService.js";
 
 // Add missing geocodeLocation function
 const geocodeLocation = async (location) => {
